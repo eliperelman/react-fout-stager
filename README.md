@@ -4,7 +4,7 @@ Load weights and styles of typefaces in stages. Based on the techniques of
 [@zachleat](https://twitter.com/zachleat)'s work on
 [FOUT with Two Stage Render](https://www.zachleat.com/web/comprehensive-webfonts/).
 
-![demo](two-stage-render.gif)
+![demo](two-stage-fout.gif)
 
 ## Features
 
