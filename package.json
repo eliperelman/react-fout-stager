@@ -9,7 +9,7 @@
     "src"
   ],
   "scripts": {
-    "build": "neutrino build",
+    "build": "neutrino build && neutrino build --options.legacy",
     "prepare": "yarn build",
     "start": "neutrino start"
   },
