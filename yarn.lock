@@ -5109,6 +5109,10 @@ type-is@~1.6.15:
     media-typer "0.3.0"
     mime-types "~2.1.15"
 
+typeface-lato@^0.0.35:
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/typeface-lato/-/typeface-lato-0.0.35.tgz#2593296b208544c05131c85067b7a6375025c492"
+
 ua-parser-js@^0.7.9:
   version "0.7.14"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.14.tgz#110d53fa4c3f326c121292bbeac904d2e03387ca"

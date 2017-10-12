@@ -4,6 +4,8 @@ Load weights and styles of typefaces in stages. Based on the techniques of
 [@zachleat](https://twitter.com/zachleat)'s work on
 [FOUT with Two Stage Render](https://www.zachleat.com/web/comprehensive-webfonts/).
 
+![demo](two-stage-render.gif)
+
 ## Features
 
 - Load multiple typefaces with weights and styles in potentially multiple stages
@@ -178,7 +180,7 @@ the Roboto Italic font:
 ```jsx
 <FoutStager stages={[{
   className: 'font-stage-primary',
-  families: [{ family: 'Roboto', options: { style: 'italic' } }]
+  families: [{ family: 'RobotoItalic', options: { style: 'italic' } }]
 }]} />
 ```
 
@@ -293,7 +295,7 @@ render((
     </p>
     <FoutStager
       stages={[{
-        className: 'fonts-stage-1-primary',
+        className: 'fonts-stage-1',
         families: [{ family: 'Lato' }],
         stages: [{
           className: 'fonts-stage-2',

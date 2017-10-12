@@ -1,0 +1,79 @@
+@font-face {
+  font-family: Lato;
+  src:
+    url('~typeface-lato/files/lato-latin-400.woff2') format('woff2'),
+    url('~typeface-lato/files/lato-latin-400.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: LatoBold;
+  src:
+    url('~typeface-lato/files/lato-latin-700.woff2') format('woff2'),
+    url('~typeface-lato/files/lato-latin-700.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: LatoItalic;
+  src:
+    url('~typeface-lato/files/lato-latin-400italic.woff2') format('woff2'),
+    url('~typeface-lato/files/lato-latin-400italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: LatoBoldItalic;
+  src:
+    url('~typeface-lato/files/lato-latin-700italic.woff2') format('woff2'),
+    url('~typeface-lato/files/lato-latin-700italic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/*
+  The purpose of defining class stages is to
+  re-render once a stage has been met. We start
+  with the minimal default stage of sans-serif,
+  and progressively re-render.
+*/
+body {
+  font-family: sans-serif;
+}
+
+/*
+  The defined stages now modify the display of
+  elements once they are loaded.
+*/
+
+/*
+  During stage 1 we only load the Lato font.
+  Once it's loaded, update the body to use it.
+*/
+.fonts-stage-1 body {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*
+  During stage 2 we load Lato Bold, Lato Italic, and
+  Lato Bold Italic. Once these 3 are loaded, we can
+  once again update relevant elements to render using
+  these fonts.
+*/
+.fonts-stage-2 h1,
+.fonts-stage-2 strong {
+  font-family: LatoBold, sans-serif;
+  font-weight: 700;
+}
+.fonts-stage-2 em {
+  font-family: LatoItalic, sans-serif;
+  font-style: italic;
+}
+.fonts-stage-2 strong em,
+.fonts-stage-2 em strong {
+  font-family: LatoBoldItalic, sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
