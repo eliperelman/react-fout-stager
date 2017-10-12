@@ -1,6 +1,6 @@
 {
   "name": "react-fout-stager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/FoutStager.js",
   "author": "Eli Perelman <eli@eliperelman.com>",
   "license": "MIT",
