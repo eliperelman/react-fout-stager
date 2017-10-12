@@ -4,6 +4,7 @@
   "main": "lib/FoutStager.js",
   "author": "Eli Perelman <eli@eliperelman.com>",
   "license": "MIT",
+  "repository": "eliperelman/react-fout-stager",
   "files": [
     "lib",
     "src"
