@@ -317,7 +317,7 @@ for developing, previewing, and building React components. To get started:
 
 - Fork and clone this repo.
 - Install the dependencies with `yarn`.
-- Start the development servers with `yarn start`.
+- Start the development server with `yarn start`.
 - Use CTRL-C to exit the development server.
 - Use `yarn build` to generate the compiled component for publishing to npm.
 
