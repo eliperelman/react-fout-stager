@@ -30,7 +30,7 @@ const classStage = function classStage({ className, stages }) {
 };
 /* eslint-enable no-shadow, consistent-return */
 
-export default class FoutLoader extends React.PureComponent {
+export default class FoutLoader extends React.Component {
   static propTypes = {
     stages: arrayOf(stage).isRequired,
     sessionKey: string,
@@ -64,5 +64,7 @@ export default class FoutLoader extends React.PureComponent {
     if (this.props.children && this.state.loaded) {
       return this.props.children;
     }
+
+    return null;
   }
 }
