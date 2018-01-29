@@ -50,7 +50,7 @@ body {
   During stage 1 we only load the Lato font.
   Once it's loaded, update the body to use it.
 */
-.fonts-stage-1 body {
+.fonts-stage-1 body .fout-container {
   font-family: Lato, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -62,17 +62,17 @@ body {
   once again update relevant elements to render using
   these fonts.
 */
-.fonts-stage-2 h1,
-.fonts-stage-2 strong {
+.fonts-stage-2 .fout-container h1,
+.fonts-stage-2 .fout-container strong {
   font-family: LatoBold, sans-serif;
   font-weight: 700;
 }
-.fonts-stage-2 em {
+.fonts-stage-2 .fout-container em {
   font-family: LatoItalic, sans-serif;
   font-style: italic;
 }
-.fonts-stage-2 strong em,
-.fonts-stage-2 em strong {
+.fonts-stage-2 .fout-container strong em,
+.fonts-stage-2 .fout-container em strong {
   font-family: LatoBoldItalic, sans-serif;
   font-weight: 700;
   font-style: italic;

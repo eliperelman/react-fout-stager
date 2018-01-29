@@ -11,7 +11,7 @@ Load weights and styles of typefaces in stages. Based on the techniques of
 - Load multiple typefaces with weights and styles in potentially multiple stages
 - Caches/optimizes repeat views per session with sessionStorage
 - Receive event when all fonts have been loaded
-- Works in latest browser versions
+- Should work in IE9+
 
 ## Installation
 
@@ -33,16 +33,6 @@ import FoutStager from 'react-fout-stager';
 
 // using require
 const FoutStager = require('react-fout-stager');
-```
-
-**Important! If you need to use the ES5 version, such as within Create React App,
-you will need to import the component at `react-fout-stager/lib/FoutStager.es5.js`, e.g.:**
-
-```js
-import FoutStager from 'react-fout-stager/lib/FoutStager.es5';
-
-// using require
-const FoutStager = require('react-fout-stager/lib/FoutStager.es5');
 ```
 
 ### Usage
@@ -196,8 +186,10 @@ the Roboto Italic font:
 
 Notice the use of `options` when loading fonts with non-normal font descriptions.
 
-
 ### Example
+
+This demo can be seen in action on the
+[hosted styleguide](https://eliperelman.github.io/react-fout-stager).
 
 For a canonical example, we are going to replicate
 [Zach Leatherman's FOFT, or FOUT with Two Stage Render](https://www.zachleat.com/web-fonts/demos/foft.html)
@@ -322,8 +314,14 @@ render((
 
 ## Development and Contributing
 
-This repository uses [Neutrino](https://neutrino.js.org) and [neutrino-preset-react-components](https://github.com/eliperelman/neutrino-preset-react-components/)
-for developing, previewing, and building React components. To get started:
+This repository uses [Neutrino](https://neutrino.js.org) and the following Neutrino middleware
+for developing, previewing, and building React components:
+
+- [@neutrinojs/react-components](https://neutrino.js.org/packages/react-components)
+- [@neutrinojs/airbnb](https://neutrino.js.org/packages/airbnb)
+- [neutrino-middleware-styleguidist](https://github.com/eliperelman/neutrino-middleware-styleguidist)
+
+To get started:
 
 - Fork and clone this repo.
 - Install the dependencies with `yarn`.
@@ -332,5 +330,5 @@ for developing, previewing, and building React components. To get started:
 - Use `yarn build` to generate the compiled component for publishing to npm.
 
 Feel free to open an issue, submit a pull request, or contribute however you would like. Understand that this
-documentation is still a work in progress, so file an issue or submit a PR to ask questions or make improvements.
+documentation is always a work in progress, so file an issue or submit a PR to ask questions or make improvements.
 Thanks!

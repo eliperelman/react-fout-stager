@@ -1,5 +1,6 @@
-import React from 'react';
-import { arrayOf, func, object, shape, string } from 'prop-types';
+/* eslint-disable import/no-extraneous-dependencies */
+import { Component } from 'react';
+import { arrayOf, func, node, object, shape, string } from 'prop-types';
 import FontFaceObserver from 'fontfaceobserver';
 
 const html = document.documentElement;
@@ -7,13 +8,14 @@ const base = {
   className: string.isRequired,
   families: arrayOf(shape({
     family: string.isRequired,
-    options: object
-  })).isRequired
+    options: object,
+  })).isRequired,
 };
 const stage = shape({ ...base, stages: arrayOf(shape(base)) });
 /* eslint-disable no-shadow, consistent-return */
 const loadStage = async function loadStage({ className, families, stages }) {
-  await Promise.all(families.map(({ family, options }) => new FontFaceObserver(family, options).load()));
+  await Promise.all(families.map(({ family, options }) =>
+    new FontFaceObserver(family, options).load()));
   html.classList.add(className);
 
   if (stages && stages.length) {
@@ -30,41 +32,47 @@ const classStage = function classStage({ className, stages }) {
 };
 /* eslint-enable no-shadow, consistent-return */
 
-export default class FoutLoader extends React.Component {
+/**
+ * Progressively render typefaces using CSS class stages
+ */
+export default class FoutStager extends Component {
   static propTypes = {
     stages: arrayOf(stage).isRequired,
     sessionKey: string,
-    onStagesLoad: func
+    onStagesLoad: func,
+    children: node,
   };
 
   static defaultProps = {
-    sessionKey: 'foutStagerLoaded'
+    sessionKey: 'foutStagerLoaded',
+    onStagesLoad: null,
+    children: null,
   };
 
   state = {
-    loaded: false
+    loaded: false,
   };
 
   async componentWillMount() {
-    if (sessionStorage[this.props.sessionKey]) {
-      this.props.stages.forEach(classStage);
+    const { sessionKey, stages, onStagesLoad } = this.props;
+
+    if (sessionStorage[sessionKey]) {
+      stages.forEach(classStage);
     } else {
-      await Promise.all(this.props.stages.map(loadStage));
-      sessionStorage[this.props.sessionKey] = true;
+      await Promise.all(stages.map(loadStage));
+      sessionStorage[sessionKey] = true;
     }
 
     this.setState({ loaded: true });
 
-    if (this.props.onStagesLoad) {
-      this.props.onStagesLoad();
+    if (onStagesLoad) {
+      onStagesLoad();
     }
   }
 
   render() {
-    if (this.props.children && this.state.loaded) {
-      return this.props.children;
-    }
-
-    return null;
+    return this.props.children && this.state.loaded
+      ? this.props.children
+      : null;
   }
 }
