@@ -1,14 +1,17 @@
 {
   "name": "react-fout-stager",
   "version": "1.0.3",
-  "main": "lib/FoutStager.js",
+  "main": "build/FoutStager.js",
   "author": "Eli Perelman <eli@eliperelman.com>",
   "license": "MIT",
   "repository": "eliperelman/react-fout-stager",
   "files": [
-    "lib",
+    "build",
     "src"
   ],
+  "resolutions": {
+    "uglify-es": "3.3.7"
+  },
   "scripts": {
     "build": "neutrino build",
     "prepare": "yarn build",
