@@ -6,14 +6,13 @@
   "license": "MIT",
   "repository": "eliperelman/react-fout-stager",
   "files": [
-    "build",
-    "src"
+    "build"
   ],
   "resolutions": {
     "uglify-es": "3.3.7"
   },
   "scripts": {
-    "build": "neutrino build",
+    "build": "neutrino build && neutrino build --options.legacy",
     "prepare": "yarn build",
     "lint": "neutrino lint",
     "start": "neutrino start",
