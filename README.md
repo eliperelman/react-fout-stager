@@ -35,6 +35,16 @@ import FoutStager from 'react-fout-stager';
 const FoutStager = require('react-fout-stager');
 ```
 
+**Important! If you need to use the ES5 version, such as within Create React App,
+you will need to import the component at `react-fout-stager/build/FoutStager.es5.js`, e.g.:**
+
+```js
+import FoutStager from 'react-fout-stager/lib/FoutStager.es5';
+
+// using require
+const FoutStager = require('react-fout-stager/lib/FoutStager.es5');
+```
+
 ### Usage
 
 After importing react-fout-stager, it can be rendered anywhere in the React tree. Once
