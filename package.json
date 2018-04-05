@@ -6,25 +6,22 @@
   "license": "MIT",
   "repository": "eliperelman/react-fout-stager",
   "files": [
-    "build"
+    "build",
+    "es5",
+    "src"
   ],
-  "resolutions": {
-    "uglify-es": "3.3.7"
-  },
   "scripts": {
-    "build": "neutrino build && neutrino build --options.legacy",
-    "prepare": "yarn build",
+    "build": "neutrino build",
+    "prepare": "neutrino build",
     "lint": "neutrino lint",
-    "start": "neutrino start",
-    "styleguide": "neutrino styleguide:start",
+    "precommit": "neutrino stage",
+    "start": "neutrino styleguide:start",
     "deploy": "neutrino styleguide:build && gh-pages -d styleguide"
   },
   "devDependencies": {
-    "@neutrinojs/airbnb": "^8.0.18",
-    "@neutrinojs/react-components": "^8.0.18",
     "gh-pages": "^1.1.0",
     "neutrino": "^8.0.18",
-    "neutrino-middleware-styleguidist": "^1.0.2",
+    "neutrino-preset-mozilla-frontend-infra": "^4.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "typeface-lato": "^0.0.54"

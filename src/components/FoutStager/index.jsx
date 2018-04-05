@@ -6,16 +6,20 @@ import FontFaceObserver from 'fontfaceobserver';
 const html = document.documentElement;
 const base = {
   className: string.isRequired,
-  families: arrayOf(shape({
-    family: string.isRequired,
-    options: object,
-  })).isRequired,
+  families: arrayOf(
+    shape({
+      family: string.isRequired,
+      options: object,
+    })
+  ).isRequired,
 };
 const stage = shape({ ...base, stages: arrayOf(shape(base)) });
-/* eslint-disable no-shadow, consistent-return */
 const loadStage = async function loadStage({ className, families, stages }) {
-  await Promise.all(families.map(({ family, options }) =>
-    new FontFaceObserver(family, options).load()));
+  await Promise.all(
+    families.map(({ family, options }) =>
+      new FontFaceObserver(family, options).load()
+    )
+  );
   html.classList.add(className);
 
   if (stages && stages.length) {
@@ -30,7 +34,6 @@ const classStage = function classStage({ className, stages }) {
     stages.forEach(classStage);
   }
 };
-/* eslint-enable no-shadow, consistent-return */
 
 /**
  * Progressively render typefaces using CSS class stages
@@ -53,7 +56,7 @@ export default class FoutStager extends Component {
     loaded: false,
   };
 
-  async componentWillMount() {
+  async componentDidMount() {
     const { sessionKey, stages, onStagesLoad } = this.props;
 
     if (sessionStorage[sessionKey]) {
@@ -63,6 +66,8 @@ export default class FoutStager extends Component {
       sessionStorage[sessionKey] = true;
     }
 
+    // This has been disabled in Airbnb but hasn't been published yet
+    // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({ loaded: true });
 
     if (onStagesLoad) {

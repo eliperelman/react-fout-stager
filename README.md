@@ -36,13 +36,13 @@ const FoutStager = require('react-fout-stager');
 ```
 
 **Important! If you need to use the ES5 version, such as within Create React App,
-you will need to import the component at `react-fout-stager/build/FoutStager.es5.js`, e.g.:**
+you will need to import the component at `react-fout-stager/es5`, e.g.:**
 
 ```js
-import FoutStager from 'react-fout-stager/lib/FoutStager.es5';
+import FoutStager from 'react-fout-stager/es5/FoutStager';
 
 // using require
-const FoutStager = require('react-fout-stager/lib/FoutStager.es5');
+const FoutStager = require('react-fout-stager/es5/FoutStager');
 ```
 
 ### Usage
